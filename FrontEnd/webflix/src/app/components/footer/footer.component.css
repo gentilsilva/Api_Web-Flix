@@ -1,0 +1,27 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: #3E3838;
+    gap: 70px;
+}
+
+hr {
+  width: 100px;
+  margin: 3PX;
+}
+
+.title, .contact {
+  color: grey;
+}
+
+p {
+  padding: 2px;
+  color: white;
+  font-size: 12px;
+}
+
+.information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
