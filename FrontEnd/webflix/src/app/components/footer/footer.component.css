@@ -1,16 +1,18 @@
 .footer {
-    display: flex;
-    justify-content: center;
-    background-color: #3E3838;
-    gap: 70px;
+  display: flex;
+  justify-content: center;
+  background-color: #3e3838;
+  gap: 70px;
+  padding: 7px;
 }
 
 hr {
   width: 100px;
-  margin: 3PX;
+  margin: 3px;
 }
 
-.title, .contact {
+.title,
+.contact {
   color: grey;
 }
 
