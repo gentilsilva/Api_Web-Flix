@@ -1,0 +1,32 @@
+<app-main-layout>
+  <section class="main-layout">
+      <div class="resume-div">
+        <div class="title">
+          <h2>Web</h2>
+          <div class="title-two">
+            <img class="logo" src="../../../assets/svg/logo.svg" alt="">
+            <h2>Flix</h2>
+          </div>
+        </div>
+        <div class="info-text">
+          <p>Olá, deseja solicitar a adição de alguma série ou filme?</p>
+          <p>Preencha o formulário ao lado com as informações necessárias</p>
+          <p>Após uma validação, nossa equipe entrará em contato com o resultado da requisição</p>
+          <p class="acknowledgment">A WebFlix agradece!</p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="form-title">
+        Formulário de requisição
+        </div>
+        <form class="form-group" [formGroup]="loginForm">
+          <input class="default-input" type="text" name="titulo" formControlName="titulo" placeholder="Titulo">
+          <input class="default-input" type="text" name="genero" formControlName="genero" placeholder="Gênero">
+          <input class="default-input" type="date" name="lancamento" formControlName="lancamento" placeholder="Lançamento">
+          <input class="default-input" type="text" name="diretor" formControlName="diretor" placeholder="Diretor">
+          <input class="default-input" type="text" name="estudio" formControlName="estudio" placeholder="Estudio">
+        </form>
+        <button class="btn-send" (click)="submit()">Send</button>
+      </div>
+  </section>
+</app-main-layout>

@@ -6,7 +6,7 @@
         alt="logo"
         class="header-logo-img"
       />
-      WebFlix
+      <h3>WebFlix</h3>
     </button>
     <div class="header-search">
       <input
@@ -32,7 +32,9 @@
     <hr />
     <button class="btn-favoritos btn-nav">Favoritos</button>
     <hr />
-    <button class="btn-pedidos btn-nav">Pedidos</button>
+    <button class="btn-pedidos btn-nav" (click)="navigate('requests')">
+      Pedidos
+    </button>
     <hr />
     <button class="btn-top-50 btn-nav">Top 50 Filmes</button>
     <hr />
