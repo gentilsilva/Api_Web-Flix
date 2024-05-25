@@ -20,7 +20,7 @@ interface LoginForm {
   standalone: true,
   imports: [ReactiveFormsModule, MainLayoutComponent],
   templateUrl: './requests.component.html',
-  styleUrl: './requests.component.css',
+  styleUrl: './requests.component.scss',
 })
 export class RequestsComponent {
   loginForm!: FormGroup<LoginForm>;
