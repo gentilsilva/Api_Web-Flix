@@ -1,0 +1,31 @@
+@import "../../../styles.scss";
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: $primary-color;
+  gap: 70px;
+  padding: 7px;
+
+  p {
+      padding: 2px;
+      color: white;
+      font-size: 12px;
+    }
+
+  hr {
+      width: 100px;
+      margin: 3px;
+    }
+
+  .title,
+  .contact {
+    color: $tertiary-color;
+  }
+
+  .information {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
