@@ -1,0 +1,34 @@
+<app-main-layout>
+  <section class="requests container-fluid h-100">
+    <div class="row dflex justify-content-center">
+      <div class="text-information-div col-6">
+        <div class="text-information row">
+          Olá, a tabela a seguir mostra os filmes que você solicitou para serem adicionados ao nosso site.
+          Abaixo, você pode ver os detalhes de cada filme, incluindo o título, gênero, data de lançamento, diretor e estúdio.
+          Se você deseja fazer outro pedido de filme, utilize o botão localizado à direita, na parte inferior da página, para acessar o formulário de solicitação.
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-8 text-center">
+        <table class="table-div table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col" *ngFor="let filmeKey of getKeys(filmes[0])">{{ filmeKey }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let filme of filmes" class="table-secondary">
+              <td *ngFor="let filmeKey of getKeys(filme)">{{ filme[filmeKey] }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-end">
+      <div class="col-4">
+        <button class="btn-request btn btn-primary" (click)="navigate('request-form')">Solicitar Show</button>
+      </div>
+    </div>
+  </section>
+</app-main-layout>

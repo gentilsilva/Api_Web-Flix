@@ -1,17 +1,20 @@
 main {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 
   .header {
+    height: 15%;
     flex: 0 0 auto;
   }
 
   .content {
+    height: 75%;
     flex: 1 0 auto;
   }
 
   .footer {
+    height: 10%;
     flex: 0 0 auto;
   }
 }

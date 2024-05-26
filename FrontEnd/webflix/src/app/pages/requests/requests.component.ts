@@ -1,45 +1,34 @@
-import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { RequestService } from './../../services/request.service';
+import { Component, OnInit } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MainLayoutComponent } from '../../layouts/main-layout/main-layout.component';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
-interface LoginForm {
-  titulo: FormControl,
-  genero: FormControl,
-  lancamento: FormControl<Date | null>,
-  diretor: FormControl,
-  estudio: FormControl,
-}
+type DataItem = {[key: string]: any}
 
 @Component({
   selector: 'app-requests',
   standalone: true,
-  imports: [ReactiveFormsModule, MainLayoutComponent],
+  imports: [ReactiveFormsModule, MainLayoutComponent, CommonModule],
   templateUrl: './requests.component.html',
   styleUrl: './requests.component.scss',
 })
-export class RequestsComponent {
-  loginForm!: FormGroup<LoginForm>;
+export class RequestsComponent implements OnInit {
+  filmes: DataItem[] = []
 
-  constructor() {
-    this.loginForm = new FormGroup({
-      titulo: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      genero: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      lancamento: new FormControl<Date>(new Date, [Validators.required]),
-      diretor: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      estudio: new FormControl('', [Validators.required, Validators.minLength(6)])
-    });
+  constructor(private router: Router, private requestService: RequestService) {}
+
+  ngOnInit(): void {
+    this.filmes = this.requestService.getFilme()
   }
 
-  submit() {
-    console.log(this.loginForm.value.titulo);
-    console.log(this.loginForm.value.genero);
-    console.log(this.loginForm.value.lancamento);
-    console.log(this.loginForm.value.diretor);
-    console.log(this.loginForm.value.estudio);
+  getKeys(object: any): string[] {
+    return this.filmes['length'] > 0 ? Object.keys(this.filmes[0]) : [];
   }
+
+  navigate(page: string) {
+    this.router.navigate([page]);
+  }
+
 }

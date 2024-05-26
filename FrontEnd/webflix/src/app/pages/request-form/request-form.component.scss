@@ -1,0 +1,41 @@
+.request-form {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url("../../../assets/webp/avengers-infinity-war-official-poster-2018-4o.webp");
+
+  .request-form-div {
+    margin-right: 10%;
+    background-color: #3e3838;
+
+    .request-title {
+      margin-top: 5%;
+      font-size: 50px;
+      font-weight: bold;
+      color: white;
+    }
+
+    form {
+      margin: 10% 0 0 20%;
+      color: white;
+
+      input {
+        text-align: center;
+      }
+    }
+
+    .btn-send-div {
+      margin-top: 10%;
+
+      .btn-send {
+        border: 1px solid white;
+        background-color: #3e3838;
+      }
+
+      .btn-send:hover {
+        background-color: #2f2f2f;
+      }
+    }
+  }
+}
