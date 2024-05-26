@@ -9,10 +9,12 @@ main {
   }
 
   .content {
+    height: 75%;
     flex: 1 0 auto;
   }
 
   .footer {
+    height: 10%;
     flex: 0 0 auto;
   }
 }
