@@ -21,6 +21,11 @@ export const routes: Routes = [
     title: "Formulário de pedidos"
   },
   {
+    path: "signup",
+    component: SignupComponent,
+    title: "SingUp"
+  },
+  {
     path: "**",
     component: MainLayoutComponent,
     title: "Home"
