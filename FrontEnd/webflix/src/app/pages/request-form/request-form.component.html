@@ -38,7 +38,7 @@
           </div>
         </form>
         <div class="btn-send-div d-flex justify-content-center">
-          <button class="btn-send btn btn-primary col-3" (click)="submit()">Enviar</button>
+          <button class="btn-send btn btn-primary col-3" (click)="submit()" [disabled]="!loginForm.valid">Enviar</button>
         </div>
       </div>
     </div>
