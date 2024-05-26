@@ -1,45 +1,34 @@
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MainLayoutComponent } from '../../layouts/main-layout/main-layout.component';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
-interface LoginForm {
-  titulo: FormControl,
-  genero: FormControl,
-  lancamento: FormControl<Date | null>,
-  diretor: FormControl,
-  estudio: FormControl,
-}
+type DataItem = {[key: string]: any}
 
 @Component({
   selector: 'app-requests',
   standalone: true,
-  imports: [ReactiveFormsModule, MainLayoutComponent],
+  imports: [ReactiveFormsModule, MainLayoutComponent, CommonModule],
   templateUrl: './requests.component.html',
   styleUrl: './requests.component.scss',
 })
 export class RequestsComponent {
-  loginForm!: FormGroup<LoginForm>;
+  filmes: DataItem[] = [
+    {id: '1', titulo: "titulo_um", genero: "genero_um", lancamento: "12/05/2023", diretor: "diretor_um", estudio: "estudio_um"},
+    {id: '2', titulo: "titulo_dois", genero: "genero_dois", lancamento: "12/05/2023", diretor: "diretor_dois", estudio: "estudio_dois"},
+    {id: '3', titulo: "titulo_tres", genero: "genero_tres", lancamento: "12/05/2023", diretor: "diretor_tres", estudio: "estudio_tres"},
+    {id: '4', titulo: "titulo_quatro", genero: "genero_quatro", lancamento: "12/05/2023", diretor: "diretor_quatro", estudio: "estudio_quatro"},
+  ]
 
-  constructor() {
-    this.loginForm = new FormGroup({
-      titulo: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      genero: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      lancamento: new FormControl<Date>(new Date, [Validators.required]),
-      diretor: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      estudio: new FormControl('', [Validators.required, Validators.minLength(6)])
-    });
+  constructor(private router: Router) {}
+
+  getKeys(object: any): string[] {
+    return Object.keys(object)
   }
 
-  submit() {
-    console.log(this.loginForm.value.titulo);
-    console.log(this.loginForm.value.genero);
-    console.log(this.loginForm.value.lancamento);
-    console.log(this.loginForm.value.diretor);
-    console.log(this.loginForm.value.estudio);
+  navigate(page: string) {
+    this.router.navigate([page]);
   }
+
 }
