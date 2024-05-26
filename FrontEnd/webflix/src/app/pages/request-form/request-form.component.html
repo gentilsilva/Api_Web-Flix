@@ -1,0 +1,46 @@
+<app-main-layout>
+  <section class="request-form container-fluid h-100">
+    <div class="request-form-div-principal d-flex justify-content-end h-100">
+      <div class="request-form-div col-5">
+        <div class="request-title d-flex justify-content-center">
+          Formulário
+        </div>
+        <form action="" [formGroup]="loginForm">
+          <div class="form-group mb-3 row">
+            <label for="titulo" class="col-sm-2 col-form-label">Titulo</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" formControlName="titulo" name="titulo" label="Titulo" placeholder="Insira o titulo">
+            </div>
+          </div>
+          <div class="form-group mb-3 row">
+            <label for="genero" class="col-sm-2 col-form-label">Gênero</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" formControlName="genero" name="genero" label="Genero" placeholder="Insira o gênero">
+            </div>
+          </div>
+          <div class="form-group mb-3 row">
+            <label for="lancamento" class="col-sm-2 col-form-label">Lançamento</label>
+            <div class="col-sm-6">
+              <input type="date" class="form-control" formControlName="lancamento" name="lancamento" label="Lancamento">
+            </div>
+          </div>
+          <div class="form-group mb-3 row">
+            <label for="diretor" class="col-sm-2 col-form-label">Diretor</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" formControlName="diretor" name="diretor" label="Diretor" placeholder="Insira o diretor">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="estudio" class="col-sm-2 col-form-label">Estudio</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" formControlName="estudio" name="estudio" label="Estudio" placeholder="Insira o estudio">
+            </div>
+          </div>
+        </form>
+        <div class="btn-send-div d-flex justify-content-center">
+          <button class="btn-send btn btn-primary col-3" (click)="submit()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</app-main-layout>
