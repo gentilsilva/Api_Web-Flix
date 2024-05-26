@@ -1,0 +1,78 @@
+@import "../../../styles.scss";
+
+.header {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  .header-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 75%;
+    background-color: $primary-color;
+
+    .btn-header-div {
+      display: flex;
+      justify-content: center;
+      height: 50%;
+
+    .btn-home {
+      width: 100%;
+      background-color: $secondary-color;
+      font-weight: bold;
+      }
+    }
+
+    .search-header-div {
+      display: flex;
+
+      input {
+        text-align: center;
+        outline: none;
+      }
+
+      .form-control:focus {
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+
+      input::placeholder {
+        text-align: center;
+      }
+
+      .search-header-div-glass {
+        background-color: white;
+        border-radius: 8px;
+      }
+    }
+
+    .menu-header-div {
+      display: flex;
+      justify-content: center;
+      height: 50%;
+      gap: 7px;
+
+      .btn-menu {
+        border: 1px solid;
+      }
+
+      .btn-menu:hover {
+        background-color: $hover-color;
+      }
+    }
+  }
+
+  .nav-div {
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    background-color: $primary-color;
+
+    .navigate {
+      justify-content: space-between;
+    }
+  }
+}
