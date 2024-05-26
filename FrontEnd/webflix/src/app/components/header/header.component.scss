@@ -8,10 +8,11 @@
 
   .header-div {
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    height: 75%;
+    height: 70%;
+    margin: 0 0;
     background-color: $primary-color;
+    gap: 1%;
 
     .btn-header-div {
       display: flex;
@@ -44,8 +45,8 @@
       }
 
       .search-header-div-glass {
-        background-color: white;
-        border-radius: 8px;
+        border-right: 1px solid;
+        border-radius: 7px;
       }
     }
 
@@ -66,13 +67,14 @@
   }
 
   .nav-div {
-    height: 25%;
-    display: flex;
-    justify-content: center;
+    height: 30%;
+    margin: 0 0;
     background-color: $primary-color;
 
-    .navigate {
-      justify-content: space-between;
+    .nav-btn-area {
+      .nav-btn {
+        color: white;
+      }
     }
   }
 }
