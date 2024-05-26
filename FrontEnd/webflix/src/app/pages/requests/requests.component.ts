@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { RequestService } from './../../services/request.service';
+import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainLayoutComponent } from '../../layouts/main-layout/main-layout.component';
 import { CommonModule } from '@angular/common';
@@ -13,18 +14,17 @@ type DataItem = {[key: string]: any}
   templateUrl: './requests.component.html',
   styleUrl: './requests.component.scss',
 })
-export class RequestsComponent {
-  filmes: DataItem[] = [
-    {id: '1', titulo: "titulo_um", genero: "genero_um", lancamento: "12/05/2023", diretor: "diretor_um", estudio: "estudio_um"},
-    {id: '2', titulo: "titulo_dois", genero: "genero_dois", lancamento: "12/05/2023", diretor: "diretor_dois", estudio: "estudio_dois"},
-    {id: '3', titulo: "titulo_tres", genero: "genero_tres", lancamento: "12/05/2023", diretor: "diretor_tres", estudio: "estudio_tres"},
-    {id: '4', titulo: "titulo_quatro", genero: "genero_quatro", lancamento: "12/05/2023", diretor: "diretor_quatro", estudio: "estudio_quatro"},
-  ]
+export class RequestsComponent implements OnInit {
+  filmes: DataItem[] = []
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private requestService: RequestService) {}
+
+  ngOnInit(): void {
+    this.filmes = this.requestService.getFilme()
+  }
 
   getKeys(object: any): string[] {
-    return Object.keys(object)
+    return this.filmes['length'] > 0 ? Object.keys(this.filmes[0]) : [];
   }
 
   navigate(page: string) {
