@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MainLayoutComponent } from '../../layouts/main-layout/main-layout.component';
 import { RequestsComponent } from '../requests/requests.component';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 interface LoginForm {
   titulo: FormControl;
@@ -34,6 +35,7 @@ export class RequestFormComponent {
   loginForm!: FormGroup<LoginForm>;
 
   constructor(
+    private router: Router,
     private requestService: RequestService,
     private toastService: ToastrService
   ) {
@@ -58,11 +60,12 @@ export class RequestFormComponent {
         diretor: this.loginForm.value.diretor,
         estudio: this.loginForm.value.estudio
       }
-        this.requestService.setFilme(novaRequisicao);
-        this.toastService.success("Solicitação enviada com sucesso");
+      this.requestService.setFilme(novaRequisicao);
+      this.toastService.success("Solicitação enviada com sucesso");
+      this.router.navigate(["requests"])
+
     } else {
       this.toastService.error("Ocorreu algum erro, tente novamente mais tarde");
     }
-
   }
 }
