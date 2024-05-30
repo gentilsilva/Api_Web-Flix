@@ -1,3 +1,4 @@
+import { HomeComponent } from './pages/home/home.component';
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { RequestsComponent } from './pages/requests/requests.component';
@@ -7,7 +8,7 @@ import { RequestFormComponent } from './pages/request-form/request-form.componen
 export const routes: Routes = [
   {
     path: "",
-    component: MainLayoutComponent,
+    component: HomeComponent,
     title: "Home"
   },
   {
@@ -27,7 +28,7 @@ export const routes: Routes = [
   },
   {
     path: "**",
-    component: MainLayoutComponent,
+    component: HomeComponent,
     title: "Home"
   }
 
