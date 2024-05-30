@@ -1,0 +1,15 @@
+<app-main-layout>
+  <section class="container-fluid h-100">
+      <div class="btn-anterior-div">
+        <button class="btn btn-primary-outline border" (click)="anterior()"><</button>
+      </div>
+      <div class="btn-proximo-div">
+        <button class="btn btn-primary-outline border" (click)="proximo()">></button>
+      </div>
+    <div class="card-container">
+      <div class="row">
+          <app-card class="col" *ngFor="let card of filmes" [imagem]="card.imagem" [titulo]="card.titulo" [genero]="card.genero"></app-card>
+      </div>
+    </div>
+      </section>
+</app-main-layout>
