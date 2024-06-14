@@ -1,4 +1,4 @@
-import { RequestService } from './../../services/request.service';
+import { RequestService } from './../../services/request/request.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MainLayoutComponent } from '../../layouts/main-layout/main-layout.component';

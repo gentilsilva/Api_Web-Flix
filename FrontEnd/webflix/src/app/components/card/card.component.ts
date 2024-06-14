@@ -11,7 +11,6 @@ export class CardComponent {
 
   @Input() titulo: string = "";
   @Input() genero: string = "";
-
   @Input() imagem: string = "";
 
 }

@@ -14,7 +14,7 @@ export class RequestService {
     {id: '4', titulo: "titulo_quatro", genero: "genero_quatro", lancamento: "12/05/2023", diretor: "diretor_quatro", estudio: "estudio_quatro"},
   ]
   users: DataItem[] = [
-    {id: '1', nome: "Camily", email: "camily@email.com", senha: "teste"}
+    {id: '1', nome: "Camily", email: "camily@email.com", senha: "123456"}
   ]
 
   constructor() { }
@@ -25,6 +25,15 @@ export class RequestService {
 
   setFilme(filme: DataItem) {
     this.filmes["push"](filme);
+  }
+
+  getUser(login: DataItem) {
+    for(let i = 0; i < this.users.length; i++) {
+      if(login['email'] === this.users[i]['email'] && login['senha'] === this.users[i]['senha']) {
+        return this.users[i];
+      }
+    }
+    return null;
   }
   
   setUser(users: DataItem){

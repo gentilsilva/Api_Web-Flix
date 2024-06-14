@@ -1,42 +1,42 @@
-<div class="signup-container">
-  <div class="signup-form">
-    <h2>Cadastro</h2>
-    <form [formGroup]="signupForm" (ngSubmit)="submit()">
-      <div class="form-group">
-        <label for="nome">Nome</label>
-        <input id="nome" formControlName="nome" type="text" placeholder="Digite seu nome" />
-        <div *ngIf="signupForm.get('nome')?.invalid && signupForm.get('nome')?.touched" class="error-message">
-          Nome é obrigatório e deve ter pelo menos 3 caracteres.
+<app-main-layout>
+  <div class="signup-container">
+    <div class="signup-form">
+      <h2>Cadastro</h2>
+      <form [formGroup]="signupForm" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input id="nome" formControlName="nome" type="text" placeholder="Digite seu nome" />
+          <div *ngIf="signupForm.get('nome')?.invalid && signupForm.get('nome')?.touched" class="error-message">
+            Nome é obrigatório e deve ter pelo menos 3 caracteres.
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" formControlName="email" type="email" placeholder="Digite seu email" />
-        <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error-message">
-          Email é obrigatório e deve ser válido.
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" formControlName="email" type="email" placeholder="Digite seu email" />
+          <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error-message">
+            Email é obrigatório e deve ser válido.
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="senha">Senha</label>
-        <input id="senha" formControlName="senha" type="password" placeholder="Digite sua senha" />
-        <div *ngIf="signupForm.get('senha')?.invalid && signupForm.get('senha')?.touched" class="error-message">
-          Senha é obrigatória e deve ter pelo menos 6 caracteres.
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input id="senha" formControlName="senha" type="password" placeholder="Digite sua senha" />
+          <div *ngIf="signupForm.get('senha')?.invalid && signupForm.get('senha')?.touched" class="error-message">
+            Senha é obrigatória e deve ter pelo menos 6 caracteres.
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="confirmSenha">Confirme a Senha</label>
-        <input id="confirmSenha" formControlName="confirmSenha" type="password" placeholder="Confirme sua senha" />
-        <div *ngIf="signupForm.hasError('mismatch') && signupForm.get('confirmSenha')?.touched" class="error-message">
-          As senhas não coincidem.
+        <div class="form-group">
+          <label for="confirmSenha">Confirme a Senha</label>
+          <input id="confirmSenha" formControlName="confirmSenha" type="password" placeholder="Confirme sua senha" />
+          <div *ngIf="signupForm.hasError('mismatch') && signupForm.get('confirmSenha')?.touched" class="error-message">
+            As senhas não coincidem.
+          </div>
         </div>
-      </div>
 
-      <button type="submit" [disabled]="signupForm.invalid">Cadastrar</button>
-    </form>
+        <button type="submit" [disabled]="signupForm.invalid">Cadastrar</button>
+      </form>
+    </div>
   </div>
-</div>
-
-  
+</app-main-layout>

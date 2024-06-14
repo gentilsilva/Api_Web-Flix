@@ -1,4 +1,4 @@
-import { RequestService } from './../../services/request.service'; // Serviço para lidar com requisições
+import { RequestService } from '../../services/request/request.service'; // Serviço para lidar com requisições
 import { Component } from '@angular/core'; // Decorador e classe Component do Angular
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, ValidatorFn, AbstractControl } from '@angular/forms'; // Ferramentas para formulários reativos
 import { MainLayoutComponent } from '../../layouts/main-layout/main-layout.component'; // Componente de layout principal

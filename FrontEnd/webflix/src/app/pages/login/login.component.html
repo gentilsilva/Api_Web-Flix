@@ -1,1 +1,26 @@
-<p>login works!</p>
+<app-main-layout>
+    <div class="login-container">
+      <div class="login-form">
+        <h2>Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="submit()">
+          <div class="form-group">
+            <label for="nome">Login</label>
+            <input id="login" formControlName="email" type="text" placeholder="Digite o seu login" />
+            <div *ngIf="loginForm.get('nome')?.invalid && loginForm.get('nome')?.touched" class="error-message">
+              Login Inválida.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <input id="senha" formControlName="senha" type="password" placeholder="Digite sua senha" />
+            <div *ngIf="loginForm.get('senha')?.invalid && loginForm.get('senha')?.touched" class="error-message">
+              Senha Inválida.
+            </div>
+          </div>
+
+          <button type="submit" (click)="submit()">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </app-main-layout>
