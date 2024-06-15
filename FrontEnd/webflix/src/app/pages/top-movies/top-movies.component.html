@@ -3,7 +3,7 @@
     <div class="card-container container-fluid col-10 mt-4 mb-4">
       <ng-container *ngFor="let group of movieGroups">
         <div class="row">
-            <app-card class="col" *ngFor="let movie of group" [imagem]="getPoster(movie.poster_path)" [titulo]="movie.title" [genero]="movie.vote_average"></app-card>
+            <app-card class="col" *ngFor="let movie of group" [imagem]="getPoster(movie.poster_path)" [titulo]="movie.title" [nota]="movie.vote_average"></app-card>
         </div>
       </ng-container>
     </div>

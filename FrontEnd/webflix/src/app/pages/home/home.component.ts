@@ -16,10 +16,10 @@ export class HomeComponent implements OnInit, OnDestroy  {
   intervalo: any;
 
   filmes = [
-    {imagem:"../../../assets/png/Acao.jpeg", titulo:"Indiana Jones", genero:"Ação"},
-    {imagem:"../../../assets/png/Animacao.jpeg", titulo:"Toy Story", genero:"Animação"},
-    {imagem:"../../../assets/png/Aventura.jpeg", titulo:"Jurassic Park", genero:"Aventura"},
-    {imagem:"../../../assets/png/Terror.jpeg", titulo:"It a coisa", genero:"Terror"},
+    {imagem:"../../../assets/png/Acao.jpeg", titulo:"Indiana Jones", nota:"Ação"},
+    {imagem:"../../../assets/png/Animacao.jpeg", titulo:"Toy Story", nota:"Animação"},
+    {imagem:"../../../assets/png/Aventura.jpeg", titulo:"Jurassic Park", nota:"Aventura"},
+    {imagem:"../../../assets/png/Terror.jpeg", titulo:"It a coisa", nota:"Terror"},
   ]
 
   trocaFundo() {

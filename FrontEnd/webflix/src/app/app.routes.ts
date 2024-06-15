@@ -6,6 +6,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { RequestFormComponent } from './pages/request-form/request-form.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TopMoviesComponent } from './pages/top-movies/top-movies.component';
+import { TopTvSeriesComponent } from './pages/top-tv-series/top-tv-series.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,11 @@ export const routes: Routes = [
     path: "top-movies",
     component: TopMoviesComponent,
     title: "Top Movies"
+  },
+  {
+    path: "top-tv-series",
+    component: TopTvSeriesComponent,
+    title: "Top Series"
   },
   {
     path: "**",

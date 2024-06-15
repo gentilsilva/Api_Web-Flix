@@ -1,4 +1,3 @@
-from doctest import debug
 from flask import Flask, jsonify
 from flask_cors import CORS
 import requests
@@ -18,6 +17,15 @@ def get_films_by_popularity():
     url = f"{URL}{local_url}"
     response = requests.get(url, headers=headers)
     
+    data = response.json()
+    return jsonify(data)
+
+@app.route("/api/tv-shows/top", methods=["GET"])
+def get_tv_shows_by_popularity():
+    local_url = "/tv/top_rated?language=pt-BR&page=1"
+    url = f"{URL}/{local_url}"
+    response = requests.get(url, headers=headers)
+
     data = response.json()
     return jsonify(data)
 

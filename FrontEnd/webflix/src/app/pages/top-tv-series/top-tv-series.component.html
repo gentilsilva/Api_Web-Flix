@@ -1,0 +1,11 @@
+<app-main-layout>
+  <section class="principal">
+    <div class="card-container container-fluid col-10 mt-4 mb-4">
+      <ng-container *ngFor="let group of tvShowsGroup">
+        <div class="row">
+            <app-card class="col" *ngFor="let tvShow of group" [imagem]="getPoster(tvShow.poster_path)" [titulo]="tvShow.title" [nota]="tvShow.vote_average"></app-card>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+</app-main-layout>
