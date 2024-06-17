@@ -9,8 +9,9 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
 
-  @Input() titulo: string = "";
-  @Input() nota: string = "";
-  @Input() imagem: string = "";
+  @Input() title: string = "";
+  @Input() lancamento: string = "";
+  @Input() vote_average: string = "";
+  @Input() poster_path: string = "";
 
 }

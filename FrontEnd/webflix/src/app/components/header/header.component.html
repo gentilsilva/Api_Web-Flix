@@ -4,10 +4,12 @@
       <button class="btn btn-primary btn-home" (click)="navigate('home')">WebFlix</button>
     </div>
     <div class="search-header-div col-5">
-      <div class="input-group col-10">
-        <input type="text" class="form-control border-0" placeholder="Pequise na WebFlix">
-        <span class="input-group-text"><img src="../../../assets/svg/search-lupa.svg" alt="" class="search-header-div-glass input-group-text"></span>
-      </div>
+      <form action="" class="form-group" [formGroup]="searchForm">
+        <div class="input-group col-10">
+          <input type="text" class="form-control border-0" formControlName="queryField" placeholder="Pequise na WebFlix">
+          <span class="input-group-text"><img src="../../../assets/svg/search-lupa.svg" alt="" class="search-header-div-glass input-group-text"></span>
+        </div>
+      </form>
     </div>
     <div class="menu-header-div col-2">
       <button class="col-5 btn btn-primary btn-menu" (click)="navigate('login')">Login</button>

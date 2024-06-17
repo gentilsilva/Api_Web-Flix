@@ -1,12 +1,12 @@
 import { HomeComponent } from './pages/home/home.component';
 import { Routes } from '@angular/router';
-import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { RequestsComponent } from './pages/requests/requests.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { RequestFormComponent } from './pages/request-form/request-form.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TopMoviesComponent } from './pages/top-movies/top-movies.component';
 import { TopTvSeriesComponent } from './pages/top-tv-series/top-tv-series.component';
+import { SearchComponent } from './pages/search/search.component';
 
 export const routes: Routes = [
   {
@@ -43,6 +43,11 @@ export const routes: Routes = [
     path: "top-tv-series",
     component: TopTvSeriesComponent,
     title: "Top Series"
+  },
+  {
+    path: "search",
+    component: SearchComponent,
+    title: "Search"
   },
   {
     path: "**",

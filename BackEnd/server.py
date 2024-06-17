@@ -1,9 +1,9 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import requests
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:4200"])
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:4200"}}, supports_credentials=True)
 
 URL: str = "https://api.themoviedb.org/3"
 headers = {
@@ -28,6 +28,26 @@ def get_tv_shows_by_popularity():
 
     data = response.json()
     return jsonify(data)
+
+@app.route("/api/show/search", methods=["GET"])
+def get_show_by_keyword():
+    value = request.args.get("value")
+    local_url = f"/search/multi?query={value}&include_adult=false&language=pt-BR&page=1"
+    url = f"{URL}{local_url}"
+
+    print(url)
+    response = requests.get(url, headers=headers)
+    
+    if response.status_code == 200:
+        try:
+            data = response.json()
+            print(data)
+            return jsonify(data)
+        except ValueError as e:
+            return jsonify({"error": "Failed to decode JSON response"}), 500
+    else:
+        return jsonify({"error": "Request failed with status code {}".format(response.status_code)}), 500
+
 
 def get_films_by_id():
     pass
