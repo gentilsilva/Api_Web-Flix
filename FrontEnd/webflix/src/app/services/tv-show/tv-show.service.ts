@@ -17,4 +17,10 @@ export class TvShowService {
     this.urlCompleta = this.apiUrl + this.endPoint;
     return this.http.get<any>(this.urlCompleta)
   }
+
+  getTvShows(): Observable<any> {
+    this.endPoint = "/api/tv-shows";
+    this.urlCompleta = this.apiUrl + this.endPoint;
+    return this.http.get<any>(this.urlCompleta)
+  }
 }

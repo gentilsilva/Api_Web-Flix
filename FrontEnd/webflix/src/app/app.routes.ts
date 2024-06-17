@@ -8,6 +8,7 @@ import { TopMoviesComponent } from './pages/top-movies/top-movies.component';
 import { TopTvSeriesComponent } from './pages/top-tv-series/top-tv-series.component';
 import { SearchComponent } from './pages/search/search.component';
 import { MoviesComponent } from './pages/movies/movies.component';
+import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 
 export const routes: Routes = [
   {
@@ -39,6 +40,11 @@ export const routes: Routes = [
     path: "movies",
     component: MoviesComponent,
     title: "Movies"
+  },
+  {
+    path: "tv-series",
+    component: TvShowsComponent,
+    title: "Series"
   },
   {
     path: "top-movies",
