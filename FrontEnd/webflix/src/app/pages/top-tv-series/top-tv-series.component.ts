@@ -17,7 +17,6 @@ export class TopTvSeriesComponent {
 
   constructor(private tvShowService: TvShowService) { }
 
-
   ngOnInit(): void {
     this.tvShowService.getTopRatedTvShow().subscribe(data => {
       this.tvShows = data.results;
@@ -32,7 +31,7 @@ export class TopTvSeriesComponent {
   chunkArray(array: any[], chunkSize: number): any[][] {
     const result = [];
     for(let i = 0; i < array.length; i += chunkSize) {
-      result.push(array.slice(i, i + chunkSize));
+        result.push(array.slice(i, i + chunkSize));
     }
     return result
   }

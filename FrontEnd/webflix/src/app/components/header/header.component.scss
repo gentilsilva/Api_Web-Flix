@@ -28,26 +28,33 @@
 
     .search-header-div {
       display: flex;
+      position: relative;
 
       input {
         text-align: center;
         outline: none;
       }
 
-      .form-control:focus {
-        border-color: inherit;
-        -webkit-box-shadow: none;
-        box-shadow: none;
+      .form-group {
+        width: 100%;
+
+        .form-control:focus {
+          border-color: inherit;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+        }
+
+        input::placeholder {
+          text-align: center;
+        }
+
+        .search-header-div-glass {
+          border-right: 1px solid;
+          border-radius: 7px;
+        }
       }
 
-      input::placeholder {
-        text-align: center;
-      }
 
-      .search-header-div-glass {
-        border-right: 1px solid;
-        border-radius: 7px;
-      }
     }
 
     .menu-header-div {
