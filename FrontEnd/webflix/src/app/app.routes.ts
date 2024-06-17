@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { TopMoviesComponent } from './pages/top-movies/top-movies.component';
 import { TopTvSeriesComponent } from './pages/top-tv-series/top-tv-series.component';
 import { SearchComponent } from './pages/search/search.component';
+import { MoviesComponent } from './pages/movies/movies.component';
 
 export const routes: Routes = [
   {
@@ -33,6 +34,11 @@ export const routes: Routes = [
     path: "login",
     component: LoginComponent,
     title: "Login"
+  },
+  {
+    path: "movies",
+    component: MoviesComponent,
+    title: "Movies"
   },
   {
     path: "top-movies",

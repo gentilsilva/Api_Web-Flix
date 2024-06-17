@@ -19,4 +19,10 @@ export class MovieService {
     return this.http.get<any>(this.urlCompleta)
   }
 
+  getMovies(): Observable<any> {
+    this.endPoint = "/api/filmes";
+    this.urlCompleta = this.apiUrl + this.endPoint;
+    return this.http.get<any>(this.urlCompleta)
+  }
+
 }

@@ -12,22 +12,68 @@ headers = {
 }
 
 @app.route("/api/filmes/top", methods=["GET"])
-def get_films_by_popularity():
+def get_movies_by_popularity():
     local_url = "/movie/top_rated?language=pt-BR&page=1"
     url = f"{URL}{local_url}"
     response = requests.get(url, headers=headers)
-    
-    data = response.json()
-    return jsonify(data)
 
-@app.route("/api/tv-shows/top", methods=["GET"])
+    if response.status_code == 200:
+        try:
+            data = response.json()
+            print(data)
+            return jsonify(data)
+        except ValueError as e:
+            return jsonify({"error": "Failed to decode JSON response"}), 500
+    else:
+        return jsonify({"error": "Request failed with status code {}".format(response.status_code)}), 500
+    
+@app.route("/api/filmes", methods=["GET"])
+def get_movies():
+    local_url = "/movie/popular?language=pt-BR&page=1"
+    url = f"{URL}{local_url}"
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        try:
+            data = response.json()
+            print(data)
+            return jsonify(data)
+        except ValueError as e:
+            return jsonify({"error": "Failed to decode JSON response"}), 500
+    else:
+        return jsonify({"error": "Request failed with status code {}".format(response.status_code)}), 500
+
+@app.route("/api/tv-shows", methods=["GET"])
 def get_tv_shows_by_popularity():
     local_url = "/tv/top_rated?language=pt-BR&page=1"
     url = f"{URL}/{local_url}"
     response = requests.get(url, headers=headers)
 
-    data = response.json()
-    return jsonify(data)
+    if response.status_code == 200:
+        try:
+            data = response.json()
+            print(data)
+            return jsonify(data)
+        except ValueError as e:
+            return jsonify({"error": "Failed to decode JSON response"}), 500
+    else:
+        return jsonify({"error": "Request failed with status code {}".format(response.status_code)}), 500
+    
+@app.route("/api/tv-shows/top", methods=["GET"])
+def get_tv_shows():
+    local_url = "/tv/popular?language=pt-BR&page=1"
+    url = f"{URL}/{local_url}"
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        try:
+            data = response.json()
+            print(data)
+            return jsonify(data)
+        except ValueError as e:
+            return jsonify({"error": "Failed to decode JSON response"}), 500
+    else:
+        return jsonify({"error": "Request failed with status code {}".format(response.status_code)}), 500
 
 @app.route("/api/show/search", methods=["GET"])
 def get_show_by_keyword():
@@ -35,7 +81,6 @@ def get_show_by_keyword():
     local_url = f"/search/multi?query={value}&include_adult=false&language=pt-BR&page=1"
     url = f"{URL}{local_url}"
 
-    print(url)
     response = requests.get(url, headers=headers)
     
     if response.status_code == 200:
