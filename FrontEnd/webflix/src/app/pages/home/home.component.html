@@ -1,6 +1,6 @@
 <app-main-layout>
-  <section class="container-fluid">
-    <div class="container home-container card bg-dark text-white">
+  <section class="container-fluid d-flex">
+    <div class="container home-container card bg-dark text-white mt-10">
       <img class="card-img" [src]="getPoster(movies[this.filmeAtual].poster_path)" alt="Imagem do card">
       <div class="card-img-overlay text">
         <b class="class="card-title>{{ movies[this.filmeAtual].title }}</b>
@@ -9,9 +9,9 @@
     </div>
 
     <div class="container show-div">
-      <div class="container container-um">
+      <div class="container">
         <div class="row">
-            <app-card class="col" *ngFor="let movie of movies" [poster_path]="getPoster(movie.poster_path)" [title]="movie.title" [lancamento]="formatDate(movie.release_date)"></app-card>
+            <app-card class="col-3 mt-5" *ngFor="let movie of movies" [poster_path]="getPoster(movie.poster_path)" [title]="movie.title" [lancamento]="formatDate(movie.release_date)"></app-card>
         </div>
       </div>
       <div class="container">

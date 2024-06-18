@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit, OnDestroy  {
   filmeAtual: number = 0;
   intervalo: any;
   movies: any[] = [];
-  series: any[] = []
+  series: any[] = [];
+  movieSeries: any[] = [];
 
   constructor(private movieService: MovieService, private tvShowService: TvShowService) { }
 
