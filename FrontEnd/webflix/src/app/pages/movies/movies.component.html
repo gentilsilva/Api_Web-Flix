@@ -4,7 +4,7 @@
       <ng-container *ngFor="let group of movieGroups">
         <div class="row">
             <app-card class="col" *ngFor="let movie of group" [poster_path]="getPoster(movie.poster_path)" [title]="movie.title || movie.name"
-            [lancamento]="movie.release_date" [vote_average]="movie.vote_average"></app-card>
+            [lancamento]="formatDate(movie.release_date)" [vote_average]="movie.vote_average"></app-card>
         </div>
       </ng-container>
     </div>

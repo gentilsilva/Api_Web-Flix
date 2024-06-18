@@ -1,15 +1,17 @@
 <app-main-layout>
   <section class="container-fluid">
-      <div class="btn-anterior-div">
-        <button class="btn btn-primary-outline border" (click)="anterior()"><</button>
+
+    <div class="container align-content-end show-div">
+      <div class="container-um">
+        <div class="row">
+            <app-card class="col" *ngFor="let movie of movies" [poster_path]="getPoster(movie.poster_path)" [title]="movie.title" [lancamento]="formatDate(movie.release_date)"></app-card>
+        </div>
       </div>
-      <div class="btn-proximo-div">
-        <button class="btn btn-primary-outline border" (click)="proximo()">></button>
-      </div>
-    <div class="card-container">
-      <div class="row">
-          <app-card class="col" *ngFor="let card of filmes" [poster_path]="card.imagem" [title]="card.titulo" [vote_average]="card.nota"></app-card>
+      <div class="">
+        <div class="row">
+            <app-card class="col" *ngFor="let serie of series" [poster_path]="getPoster(serie.poster_path)" [title]="serie.name" [lancamento]="formatDate(serie.first_air_date)"></app-card>
+        </div>
       </div>
     </div>
-      </section>
+  </section>
 </app-main-layout>

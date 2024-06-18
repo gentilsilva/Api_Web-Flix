@@ -1,7 +1,9 @@
+import { TvShowService } from './../../services/tv-show/tv-show.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MainLayoutComponent } from '../../layouts/main-layout/main-layout.component';
 import { CardComponent } from '../../components/card/card.component';
 import { CommonModule } from '@angular/common';
+import { MovieService } from '../../services/movies/movie.service';
 
 
 @Component({
@@ -14,34 +16,29 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent implements OnInit, OnDestroy  {
   filmeAtual: number = 0;
   intervalo: any;
+  movies: any[] = [];
+  series: any[] = []
 
-  filmes = [
-    {imagem:"../../../assets/png/Acao.jpeg", titulo:"Indiana Jones", nota:"Ação"},
-    {imagem:"../../../assets/png/Animacao.jpeg", titulo:"Toy Story", nota:"Animação"},
-    {imagem:"../../../assets/png/Aventura.jpeg", titulo:"Jurassic Park", nota:"Aventura"},
-    {imagem:"../../../assets/png/Terror.jpeg", titulo:"It a coisa", nota:"Terror"},
-  ]
-
-  trocaFundo() {
-    const filme = this.filmes[this.filmeAtual]
-    document.body.style.backgroundImage = `url(${filme.imagem})`
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundRepeat = 'no-repeat';
-    document.body.style.backgroundPosition = 'center center';
-  }
+  constructor(private movieService: MovieService, private tvShowService: TvShowService) { }
 
   proximo() {
-    this.filmeAtual = (this.filmeAtual + 1) % this.filmes.length;
-    this.trocaFundo();
+    this.filmeAtual = (this.filmeAtual + 1) % this.movies.length;
   }
 
   anterior() {
-    this.filmeAtual = (this.filmeAtual - 1 + this.filmes.length) % this.filmes.length;
-    this.trocaFundo();
+    this.filmeAtual = (this.filmeAtual - 1 + this.movies.length) % this.movies.length;
   }
 
   ngOnInit() {
-    this.trocaFundo()
+    this.movieService.getMovies().subscribe((data: { results: any[]; }) => {
+      this.movies = data.results;
+      this.movies = this.chunkArray(this.movies, 4);
+    });
+
+    this.tvShowService.getTvShows().subscribe((data: { results: any[]; }) => {
+      this.series = data.results;
+      this.series = this.chunkArray(this.series, 4);
+    })
 
     this.intervalo = setInterval(() => {
       this.proximo();
@@ -52,11 +49,29 @@ export class HomeComponent implements OnInit, OnDestroy  {
     if(this.intervalo) {
       clearInterval(this.intervalo);
     }
+  }
 
-    document.body.style.backgroundImage = '';
-    document.body.style.backgroundSize = '';
-    document.body.style.backgroundRepeat = '';
-    document.body.style.backgroundPosition = '';
+  formatDate(date: string) {
+    let newDate = new Date(date)
+
+    let formatedDate = newDate.toLocaleDateString("pt-BR", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric"
+    })
+
+    return formatedDate
+  }
+
+  getPoster(posterPath: string): string {
+    return `https://image.tmdb.org/t/p/w500/${posterPath}`
+  }
+
+  chunkArray(array: any[], chunkSize: number): any[][] {
+    const result = [];
+    for(let i = 0; i < chunkSize; i++) {
+        result.push(array[i]);
+    }
+    return result
   }
 }
-

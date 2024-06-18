@@ -32,6 +32,18 @@ export class SearchComponent {
     });
   }
 
+  formatDate(date: string) {
+    let newDate = new Date(date)
+
+    let formatedDate = newDate.toLocaleDateString("pt-BR", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric"
+    })
+
+    return formatedDate
+  }
+
   getPoster(posterPath: string): string {
     return `https://image.tmdb.org/t/p/w500/${posterPath}`;
   }

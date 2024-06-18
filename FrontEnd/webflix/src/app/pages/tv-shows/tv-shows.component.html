@@ -4,7 +4,7 @@
       <ng-container *ngFor="let group of tvShowsGroup">
         <div class="row">
             <app-card class="col" *ngFor="let tvShow of group" [poster_path]="getPoster(tvShow.poster_path)" [title]="tvShow.title || tvShow.name"
-            [lancamento]="tvShow.first_air_date" [vote_average]="tvShow.vote_average"></app-card>
+            [lancamento]="formatDate(tvShow.first_air_date)" [vote_average]="tvShow.vote_average"></app-card>
         </div>
       </ng-container>
     </div>
