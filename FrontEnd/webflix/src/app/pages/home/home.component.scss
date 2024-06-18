@@ -1,34 +1,19 @@
 .container-fluid {
   background-color: black;
-  display: grid;
+
   height: 100vh;
 
-  .btn-anterior-div {
-    grid-column: 6;
-    align-self: self-end;
-    margin-bottom: 10rem;
+  .home-container {
+    width: 45%;
+    height: 30%;
+    margin-bottom: 15px;
+    margin-top: 2px;
 
-    .border {
-      font-weight: bold;
-      color: white;
-    }
-  }
-
-  .btn-proximo-div {
-    grid-column: 10;
-    align-self: self-end;
-    margin-bottom: 10rem;
-
-    .border {
-      font-weight: bold;
-      color: white;
-    }
-  }
-
-
-  .card-container {
     display: flex;
-    grid-column: 15;
-    align-self: flex-end;
+
+    .text {
+      align-self: flex-end;
+    }
   }
+
 }
