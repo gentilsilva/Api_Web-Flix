@@ -1,28 +1,22 @@
-<section class="header container-fluid h-100">
-  <div class="header-div row justify-content-md-center">
-    <div class="btn-header-div col-1">
-      <button class="btn btn-primary btn-home" (click)="navigate('home')">WebFlix</button>
-    </div>
-    <div class="search-header-div col-5">
-      <form action="" class="form-group" [formGroup]="searchForm">
-        <div class="input-group col-10">
-          <input type="text" class="form-control border-0" formControlName="queryField" placeholder="Pequise na WebFlix">
-          <span class="input-group-text"><img src="../../../assets/svg/search-lupa.svg" alt="" class="search-header-div-glass input-group-text"></span>
-        </div>
+<section class="header">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a class="nav-link px-2 text-secondary" (click)="navigate('home')">WebFlix</a></li>
+        <li><a class="nav-link px-2 text-white" (click)="navigate('movies')">Filmes</a></li>
+        <li><a class="nav-link px-2 text-white" (click)="navigate('tv-series')">Series</a></li>
+        <li><a class="nav-link px-2 text-white" (click)="navigate('top-movies')">Top Filmes</a></li>
+        <li><a class="nav-link px-2 text-white" (click)="navigate('top-tv-series')">Top Series</a></li>
+      </ul>
+
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" [formGroup]="searchForm">
+        <input type="search" class="form-control form-control-dark" formControlName="queryField" placeholder="Search..." aria-label="Search">
       </form>
+
+      <div class="text-end">
+        <button type="button" class="btn btn-outline-light me-2" (click)="navigate('login')">Login</button>
+        <button type="button" class="btn btn-warning" (click)="navigate('signup')">Sign-up</button>
+      </div>
     </div>
-    <div class="menu-header-div col-2">
-      <button class="col-5 btn btn-primary btn-menu" (click)="navigate('login')">Login</button>
-      <button class="col-5 btn btn-primary btn-menu" (click)="navigate('signup')">Sign Up</button>
-    </div>
-  </div>
-  <div class="nav-div row justify-content-md-center">
-    <nav class="nav-btn-area col-5">
-      <button class="nav-btn col-1" (click)="navigate('movies')">Filmes</button>
-      <button class="nav-btn col-1" (click)="navigate('tv-series')">Series</button>
-      <button class="nav-btn col-2" (click)="navigate('requests')">Meus Pedidos</button>
-      <button class="nav-btn col-2" (click)="navigate('top-movies')">Top Filmes</button>
-      <button class="nav-btn col-2" (click)="navigate('top-tv-series')">Top Series</button>
-    </nav>
   </div>
 </section>

@@ -1,5 +1,4 @@
 main {
-  height: 100%;
   margin: 0;
   padding: 0;
   display: flex;
@@ -7,7 +6,6 @@ main {
   min-height: 100vh;
 
   .header {
-    height: 15%;
     flex: 0 0 auto;
   }
 
@@ -16,7 +14,6 @@ main {
   }
 
   .footer {
-    height: 10%;
     flex: 0 0 auto;
   }
 }
