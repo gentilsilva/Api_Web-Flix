@@ -14,6 +14,8 @@ import { TvShowService } from '../../services/tv-show/tv-show.service';
 export class TvShowsComponent {
   tvShows: any[] = [];
   tvShowsGroup: any[][] = [];
+  currentPage: number = 1;
+  isLoading: boolean = false;
 
   constructor(private tvShowService: TvShowService) { }
 
@@ -22,6 +24,23 @@ export class TvShowsComponent {
       this.tvShows = data.results;
       this.tvShowsGroup = this.chunkArray(this.tvShows, 4);
     });
+  }
+
+  loadSeries(initialLoad: boolean = false): void {
+    if (this.isLoading) return;
+    this.isLoading = true;
+    this.tvShowService.getTvShows(this.currentPage).subscribe(data => {
+      this.tvShows = [...this.tvShows, ...data.results];
+      this.tvShowsGroup = this.chunkArray(this.tvShows, 4);
+      this.isLoading = false;
+    }, () => {
+      this.isLoading = false;
+    });
+  }
+
+  loadMoreSeries(): void {
+    this.currentPage++;
+    this.loadSeries();
   }
 
   formatDate(date: string) {

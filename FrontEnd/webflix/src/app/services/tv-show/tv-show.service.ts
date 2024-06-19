@@ -18,9 +18,9 @@ export class TvShowService {
     return this.http.get<any>(this.urlCompleta)
   }
 
-  getTvShows(): Observable<any> {
+  getTvShows(page: number = 1): Observable<any> {
     this.endPoint = "/api/tv-shows";
     this.urlCompleta = this.apiUrl + this.endPoint;
-    return this.http.get<any>(this.urlCompleta)
+    return this.http.get<any>(this.urlCompleta, { params: {page} })
   }
 }

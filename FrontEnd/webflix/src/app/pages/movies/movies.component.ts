@@ -31,11 +31,6 @@ export class MoviesComponent {
       this.movies = [...this.movies, ...data.results];
       this.movieGroups = this.chunkArray(this.movies, 4);
       this.isLoading = false;
-
-      // Check if scrolling is possible, and load more if not
-      if (initialLoad && (document.body.scrollHeight <= window.innerHeight)) {
-        this.loadMoreMovies();
-      }
     }, () => {
       this.isLoading = false;
     });

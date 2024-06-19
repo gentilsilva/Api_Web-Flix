@@ -43,10 +43,10 @@ def get_movies():
             return jsonify({"error": "Failed to decode JSON response"}), 500
     else:
         return jsonify({"error": "Request failed with status code {}".format(response.status_code)}), 500
-
-@app.route("/api/tv-shows", methods=["GET"])
-def get_tv_shows_by_popularity():
-    local_url = "/tv/top_rated?language=pt-BR&page=1"
+    
+@app.route("/api/tv-shows/top", methods=["GET"])
+def get_tv_shows():
+    local_url = "/tv/popular?language=pt-BR&page=1"
     url = f"{URL}/{local_url}"
     response = requests.get(url, headers=headers)
 
@@ -60,9 +60,10 @@ def get_tv_shows_by_popularity():
     else:
         return jsonify({"error": "Request failed with status code {}".format(response.status_code)}), 500
     
-@app.route("/api/tv-shows/top", methods=["GET"])
-def get_tv_shows():
-    local_url = "/tv/popular?language=pt-BR&page=1"
+@app.route("/api/tv-shows", methods=["GET"])
+def get_tv_shows_by_popularity():
+    page = request.args.get("page", 1)
+    local_url = f"/tv/top_rated?language=pt-BR&page={page}"
     url = f"{URL}/{local_url}"
     response = requests.get(url, headers=headers)
 
