@@ -8,5 +8,11 @@
         </div>
       </ng-container>
     </div>
+    <div class="text-center mb-2">
+      <button (click)="loadMoreMovies()" class="btn btn-secondary btn-lg btn-block" *ngIf="!isLoading">Carregar Mais</button>
+    </div>
+    <div class="text-center" *ngIf="isLoading">
+      <p>Carregando...</p>
+    </div>
   </section>
 </app-main-layout>

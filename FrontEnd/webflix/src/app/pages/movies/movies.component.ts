@@ -14,14 +14,36 @@ import { MovieService } from '../../services/movies/movie.service';
 export class MoviesComponent {
   movies: any[] = [];
   movieGroups: any[][] = [];
+  currentPage: number = 1;
+  isLoading: boolean = false;
+
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.movieService.getMovies().subscribe(data => {
-      this.movies = data.results;
+    this.loadMovies()
+  }
+
+  loadMovies(initialLoad: boolean = false): void {
+    if (this.isLoading) return;
+    this.isLoading = true;
+    this.movieService.getMovies(this.currentPage).subscribe(data => {
+      this.movies = [...this.movies, ...data.results];
       this.movieGroups = this.chunkArray(this.movies, 4);
+      this.isLoading = false;
+
+      // Check if scrolling is possible, and load more if not
+      if (initialLoad && (document.body.scrollHeight <= window.innerHeight)) {
+        this.loadMoreMovies();
+      }
+    }, () => {
+      this.isLoading = false;
     });
+  }
+
+  loadMoreMovies(): void {
+    this.currentPage++;
+    this.loadMovies();
   }
 
   formatDate(date: string) {

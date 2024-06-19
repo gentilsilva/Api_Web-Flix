@@ -29,7 +29,8 @@ def get_movies_by_popularity():
     
 @app.route("/api/filmes", methods=["GET"])
 def get_movies():
-    local_url = "/movie/popular?language=pt-BR&page=1"
+    page = request.args.get("page", 1)
+    local_url = f"/movie/popular?language=pt-BR&page={page}"
     url = f"{URL}{local_url}"
     response = requests.get(url, headers=headers)
 
