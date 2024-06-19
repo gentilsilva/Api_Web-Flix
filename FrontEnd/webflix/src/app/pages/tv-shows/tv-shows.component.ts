@@ -20,10 +20,7 @@ export class TvShowsComponent {
   constructor(private tvShowService: TvShowService) { }
 
   ngOnInit(): void {
-    this.tvShowService.getTvShows().subscribe(data => {
-      this.tvShows = data.results;
-      this.tvShowsGroup = this.chunkArray(this.tvShows, 4);
-    });
+    this.loadSeries()
   }
 
   loadSeries(initialLoad: boolean = false): void {

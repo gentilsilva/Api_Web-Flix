@@ -5,4 +5,11 @@
     display: grid;
     gap: 30px;
   }
+
+  .text-center {
+    color: grey;
+    .btn {
+      width: 50%;
+    }
+  }
 }
