@@ -1,7 +1,7 @@
 <div class="card text-white bg-dark border-dark">
   <img [src]="poster_path" class="card-size card-img-top" alt="...">
   <div class="card-body">
-    <a href=""><p class="title card-title">{{ title }}</p></a>
+    <a (click)="details(show_id, show_type)"><p class="title card-title">{{ title }}</p></a>
     <p class="lancamento">{{ lancamento }}</p>
   </div>
 </div>

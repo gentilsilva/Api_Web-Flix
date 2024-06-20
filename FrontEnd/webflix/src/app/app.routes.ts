@@ -9,6 +9,8 @@ import { TopTvSeriesComponent } from './pages/top-tv-series/top-tv-series.compon
 import { SearchComponent } from './pages/search/search.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
+import { SerieDetailComponent } from './pages/serie-detail/serie-detail.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +42,16 @@ export const routes: Routes = [
     path: "movies",
     component: MoviesComponent,
     title: "Movies"
+  },
+  {
+    path: "movie-detail",
+    component: MovieDetailComponent,
+    title: "Movie Detail"
+  },
+  {
+    path: "serie-detail",
+    component: SerieDetailComponent,
+    title: "Serie Detail"
   },
   {
     path: "tv-series",

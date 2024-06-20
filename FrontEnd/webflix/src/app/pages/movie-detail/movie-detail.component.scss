@@ -1,0 +1,38 @@
+.detail {
+  height: 40vh;
+  width: auto;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  color: white;
+
+  .imagem {
+    width: 40%;
+  }
+
+  img {
+    margin-left: 50px;
+  }
+
+  .title {
+    margin-top: 40px;
+    margin-left: 50px;
+  }
+
+  .descricao {
+    width: 30%;
+    margin-top: 10px;
+    margin-left: 50px;
+  }
+
+  .popularidade {
+    margin-top: 10px;
+    margin-left: 50px;
+  }
+
+  .data-lancamento {
+    margin-top: 10px;
+    margin-left: 50px;
+  }
+
+}

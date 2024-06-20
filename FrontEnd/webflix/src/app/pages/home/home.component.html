@@ -13,7 +13,7 @@
           <h4>Tendências - Filmes</h4>
         </div>
         <div class="row">
-            <app-card class="col" *ngFor="let movie of movies" [poster_path]="getPoster(movie.poster_path)" [title]="movie.title" [lancamento]="formatDate(movie.release_date)"></app-card>
+            <app-card class="col" *ngFor="let movie of movies" [show_id]="movie.id" [show_type]="1" [poster_path]="getPoster(movie.poster_path)" [title]="movie.title" [lancamento]="formatDate(movie.release_date)"></app-card>
         </div>
       </div>
       <div class="">
@@ -21,7 +21,7 @@
           <h4>Tendências - Series</h4>
         </div>
         <div class="row">
-            <app-card class="col" *ngFor="let serie of series" [poster_path]="getPoster(serie.poster_path)" [title]="serie.name" [lancamento]="formatDate(serie.first_air_date)"></app-card>
+            <app-card class="col" *ngFor="let serie of series" [show_id]="serie.id" [show_type]="2" [poster_path]="getPoster(serie.poster_path)" [title]="serie.name" [lancamento]="formatDate(serie.first_air_date)"></app-card>
         </div>
       </div>
     </div>

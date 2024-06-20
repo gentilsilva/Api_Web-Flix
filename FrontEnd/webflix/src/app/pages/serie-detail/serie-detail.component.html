@@ -1,0 +1,16 @@
+<app-main-layout>
+  <section class="container-fluid">
+    <div class="detail">
+      <img [src]="this.getPoster(serie.poster_path)" class="imagem h-100">
+      <div>
+        <div class="title mt-50"> {{ serie.name }} </div>
+        <div class="descricao"> {{ serie.overview }}</div>
+        <div class="popularidade"> Popularidade: {{ serie.vote_average.toFixed(2) }}%</div>
+        <div class="data-lancamento"> Lançamento: {{ formatDate(serie.first_air_date) }}</div>
+      </div>
+      <div>
+      </div>
+    </div>
+  </section>
+</app-main-layout>
+

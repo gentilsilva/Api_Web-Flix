@@ -25,4 +25,10 @@ export class MovieService {
     return this.http.get<any>(this.urlCompleta, { params: {page} })
   }
 
+  getMovieById(id: number) {
+    this.endPoint = "/api/filmes/detail";
+    this.urlCompleta = this.apiUrl + this.endPoint;
+    return this.http.get<any>(this.urlCompleta, { params: {id} })
+  }
+
 }

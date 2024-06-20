@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TvShowService {
+
   private apiUrl = "http://127.0.0.1:5000";
   private endPoint: string = "";
   private urlCompleta: string = ""
@@ -22,5 +23,11 @@ export class TvShowService {
     this.endPoint = "/api/tv-shows";
     this.urlCompleta = this.apiUrl + this.endPoint;
     return this.http.get<any>(this.urlCompleta, { params: {page} })
+  }
+
+  getSerieById(id: number) {
+    this.endPoint = "/api/tv-show/detail";
+    this.urlCompleta = this.apiUrl + this.endPoint;
+    return this.http.get<any>(this.urlCompleta, { params: {id} })
   }
 }
