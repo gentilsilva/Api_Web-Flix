@@ -1,4 +1,11 @@
 <app-main-layout>
+  <div class="container">
+    <div class="bg-img">
+      <form class="col-10" [formGroup]="searchForm">
+        <input type="text" class="form-control form-control-dark" formControlName="queryField" placeholder="Search..." aria-label="Search">
+      </form>
+    </div>
+  </div>
   <section class="container-fluid d-flex">
     <div class="container show-div">
       <div class="">

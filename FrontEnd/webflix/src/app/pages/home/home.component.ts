@@ -1,15 +1,19 @@
+import { Router } from '@angular/router';
 import { TvShowService } from './../../services/tv-show/tv-show.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MainLayoutComponent } from '../../layouts/main-layout/main-layout.component';
 import { CardComponent } from '../../components/card/card.component';
 import { CommonModule } from '@angular/common';
 import { MovieService } from '../../services/movies/movie.service';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Observable, debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs';
+import { SearchCommunicationService } from '../../services/search-communication/search-communication.service';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MainLayoutComponent, CardComponent, CommonModule],
+  imports: [MainLayoutComponent, ReactiveFormsModule, CardComponent, CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -19,8 +23,14 @@ export class HomeComponent implements OnInit, OnDestroy  {
   movies: any[] = [];
   series: any[] = [];
   movieSeries: any[] = [];
+  searchForm!: FormGroup;
+  result: Observable<any> | undefined
 
-  constructor(private movieService: MovieService, private tvShowService: TvShowService) { }
+  constructor(private router: Router, private movieService: MovieService, private tvShowService: TvShowService, private searchCommService: SearchCommunicationService) {
+    this.searchForm = new FormGroup({
+      queryField: new FormControl()
+    });
+  }
 
   proximo() {
     this.filmeAtual = (this.filmeAtual + 1) % this.movies.length;
@@ -40,6 +50,17 @@ export class HomeComponent implements OnInit, OnDestroy  {
       this.series = data.results;
       this.series = this.chunkArray(this.series, 7);
     })
+
+    this.searchForm.get('queryField')!.valueChanges.pipe(
+      map(value => value.trim()),
+      filter(value => value.length > 2),
+      debounceTime(200),
+      distinctUntilChanged(),
+      switchMap(async (value) => {
+        this.searchCommService.setSearchQuery(value);
+        return this.router.navigate(['search']);
+      })
+    ).subscribe();
 
     this.intervalo = setInterval(() => {
       this.proximo();

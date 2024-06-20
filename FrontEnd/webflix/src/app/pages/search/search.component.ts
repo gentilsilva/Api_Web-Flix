@@ -23,7 +23,7 @@ export class SearchComponent {
       if (query && query.length > 2) {
         this.searchService.searchShow(query).subscribe(data => {
           this.searchResult = data.results;
-          this.searchResultGroup = this.chunkArray(this.searchResult, 4);
+          this.searchResultGroup = this.chunkArray(this.searchResult, 5);
         });
       } else {
         this.searchResult = [];
