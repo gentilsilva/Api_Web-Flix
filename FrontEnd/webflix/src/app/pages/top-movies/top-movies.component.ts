@@ -22,7 +22,7 @@ export class TopMoviesComponent implements OnInit {
   ngOnInit(): void {
     this.movieService.getTopRatedMovies().subscribe(data => {
       this.movies = data.results;
-      this.movieGroups = this.chunkArray(this.movies, 4);
+      this.movieGroups = this.chunkArray(this.movies, 5);
     });
   }
 

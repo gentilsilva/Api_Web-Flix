@@ -33,12 +33,12 @@ export class HomeComponent implements OnInit, OnDestroy  {
   ngOnInit() {
     this.movieService.getMovies().subscribe((data: { results: any[]; }) => {
       this.movies = data.results;
-      this.movies = this.chunkArray(this.movies, 4);
+      this.movies = this.chunkArray(this.movies, 7);
     });
 
     this.tvShowService.getTvShows().subscribe((data: { results: any[]; }) => {
       this.series = data.results;
-      this.series = this.chunkArray(this.series, 4);
+      this.series = this.chunkArray(this.series, 7);
     })
 
     this.intervalo = setInterval(() => {

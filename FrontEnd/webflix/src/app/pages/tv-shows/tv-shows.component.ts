@@ -28,7 +28,7 @@ export class TvShowsComponent {
     this.isLoading = true;
     this.tvShowService.getTvShows(this.currentPage).subscribe(data => {
       this.tvShows = [...this.tvShows, ...data.results];
-      this.tvShowsGroup = this.chunkArray(this.tvShows, 4);
+      this.tvShowsGroup = this.chunkArray(this.tvShows, 5);
       this.isLoading = false;
     }, () => {
       this.isLoading = false;

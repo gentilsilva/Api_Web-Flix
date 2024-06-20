@@ -1,18 +1,14 @@
 .container-fluid {
   background-color: black;
-
   height: 100vh;
+  display: flex;
 
-  .home-container {
-    width: 45%;
-    height: 50%;
-    margin-top: 50px;
+  app-card {
+    width: 20%;
+  }
 
-    display: flex;
-
-    .text {
-      align-self: flex-end;
-    }
+  .text {
+    align-self: flex-end;
   }
 
   .show-div {

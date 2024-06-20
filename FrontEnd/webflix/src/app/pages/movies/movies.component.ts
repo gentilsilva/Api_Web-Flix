@@ -29,7 +29,7 @@ export class MoviesComponent {
     this.isLoading = true;
     this.movieService.getMovies(this.currentPage).subscribe(data => {
       this.movies = [...this.movies, ...data.results];
-      this.movieGroups = this.chunkArray(this.movies, 4);
+      this.movieGroups = this.chunkArray(this.movies, 5);
       this.isLoading = false;
     }, () => {
       this.isLoading = false;

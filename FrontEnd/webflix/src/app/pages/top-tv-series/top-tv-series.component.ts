@@ -20,7 +20,7 @@ export class TopTvSeriesComponent {
   ngOnInit(): void {
     this.tvShowService.getTopRatedTvShow().subscribe(data => {
       this.tvShows = data.results;
-      this.tvShowsGroup = this.chunkArray(this.tvShows, 4);
+      this.tvShowsGroup = this.chunkArray(this.tvShows, 5);
     });
   }
 
